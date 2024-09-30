@@ -1,0 +1,117 @@
+IDX,USER_QUERY,IS_VALID,MATCH,NUM_FILTERS_EXP,FILTERS_EXP,OPERATORS_EXP,VALUES_EXP,NUM_FILTERS_ACT,FILTERS_ACT,OPERATORS_ACT,VALUES_ACT
+0,Could you please retrieve the maintenance orders that do not have any open reservations?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,MaintOrderHasOpenReservations,eq,false,1,MaintOrderHasOpenReservations,eq,false
+,,,,,,,,,,,
+,,,,,,,,,,,
+1,Can you find the data where the settlement order is finalized and resolved in the fifth sequence?,F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,1,SettlementOrder,eq,'5',1,MaintOrderProcessingPhase,eq,'6'
+,,,,,,,,,,,
+,,,,,,,,,,,
+2,"Could you provide me with all maintenance orders that were scheduled to start on or after March 3, 2022?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,1,MaintOrdSchedBscStartDateTime,ge,datetime'2022-03-03T00:00:00',1,MaintOrdSchedBscStartDateTime,ge,datetimeoffset'2022-03-03T00:00:00'
+,,,,,,,,,,,
+,,,,,,,,,,,
+3,Show me the records that were created by the user John Doe.,F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,1,CreatedByUser,eq,'JohnDoe',1
+,,,,,,,,,,,
+,,,,,,,,,,,
+4,Could you provide me with the maintenance orders that still have open services associated with them?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,MaintOrdHasOpenServices,eq,true,1,MaintOrdHasOpenServices,eq,true
+,,,,,,,,,,,
+,,,,,,,,,,,
+5,I need information for the cost center responsible which is 'CC5005'.,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,ResponsibleCostCenter,eq,'CC5005',1,ResponsibleCostCenter,eq,'CC5005'
+,,,,,,,,,,,
+,,,,,,,,,,,
+6,I want details where the controlling object class is related to 'ObjectClass4'.,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,ControllingObjectClass,eq,'ObjectClass4',1,ControllingObjectClass,eq,'ObjectClass4'
+,,,,,,,,,,,
+,,,,,,,,,,,
+8,Could you bring up all the information related to the plant named Marigold?,F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,1,PlantName,eq,'Marigold',1,MaintenancePlanningPlantName,eq,'Marigold'
+,,,,,,,,,,,
+,,,,,,,,,,,
+9,"Can you give me the maintenance orders that were logged in at the exact time of May 1, 2021, midnight?",T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,MaintOrderReferenceDateTime,eq,datetime'2021-05-01T00:00:00',1,MaintOrderReferenceDateTime,eq,datetime'2021-05-01T00:00:00'
+,,,,,,,,,,,
+,,,,,,,,,,,
+10,Could you present me the records where the controlling area is identified by the code CA009?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,ControllingArea,eq,'CA009',1,ControllingArea,eq,'CA009'
+,,,,,,,,,,,
+,,,,,,,,,,,
+11,Can you show me details for the city named Dallas?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,CityName,eq,'Dallas',1,CityName,eq,'Dallas'
+,,,,,,,,,,,
+,,,,,,,,,,,
+12,I would like to see data where the local account assignment controlling area is described as 'Controlling Area A000'.,F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,1,LocAcctAssgmtCtrlgAreaDesc,eq,'Controlling,Area,A000',1
+,,,,,,,,,,,
+,,,,,,,,,,,
+13,"Kindly provide me with the assignments that must be completed on or after February 12, 2029.",T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,LatestAcceptableCompletionDate,ge,datetime'2029-02-12T00:00:00',1,LatestAcceptableCompletionDate,ge,datetime'2029-02-12T00:00:00'
+,,,,,,,,,,,
+,,,,,,,,,,,
+14,Could you pull up the data where the maintenance order indicates that there is an open main work ongoing or pending?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,MaintOrdHasOpenMainWork,eq,true,1,MaintOrdHasOpenMainWork,eq,true
+,,,,,,,,,,,
+,,,,,,,,,,,
+15,Can you show me the maintenance orders that are specifically designated for administrative purposes?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,MaintOrdIsForAdministration,eq,true,1,MaintOrdIsForAdministration,eq,true
+,,,,,,,,,,,
+,,,,,,,,,,,
+16,Could you find the records where the maintenance priority type is set to 'General notif. prio.'?,F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,1,MaintPriorityType,eq,'G0',0
+17,Can you find all maintenance orders with a processing context that indicates they are new?,F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,1,MaintOrderProcessingContext,eq,'New',1,MaintOrderProcessingContext,eq,''
+,,,,,,,,,,,
+,,,,,,,,,,,
+18,"Provide me with tasks that should be completed on or before October 16, 2026.",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,1,LatestAcceptableCompletionDate,le,datetime'2026-10-16T00:00:00',1,MaintOrdBasicEndDate,le,2026-10-16
+,,,,,,,,,,,
+,,,,,,,,,,,
+19,Show me the maintenance orders that are not specifically reserved for administration.,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,MaintOrdIsForAdministration,eq,false,1,MaintOrdIsForAdministration,eq,false
+,,,,,,,,,,,
+,,,,,,,,,,,
+20,Can you find the records where the Work Breakdown Structure element is WBSElement3?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,WBSElement,eq,'WBSElement3',1,WBSElement,eq,'WBSElement3'
+,,,,,,,,,,,
+,,,,,,,,,,,
+21,Fetch me the data where the current phase of the maintenance process is identified as 'RoutineCheck'.,F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,1,MaintenanceProcessingPhase,eq,'RoutineCheck',0
+22,Show me the profiles where the status is not specified.,F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,1,StatusProfile,eq,'',1,StatusName,eq,null
+,,,,,,,,,,,
+,,,,,,,,,,,
+23,Could you fetch the maintenance orders that have open services?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,MaintOrdHasOpenServices,eq,true,1,MaintOrdHasOpenServices,eq,true
+,,,,,,,,,,,
+,,,,,,,,,,,
+24,I need data for the records that have been created by the user 'PeterParker'.,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,CreatedByUser,eq,'PeterParker',1,CreatedByUser,eq,'PeterParker'
+,,,,,,,,,,,
+,,,,,,,,,,,
+25,Can you provide all orders that have a long text description?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,OrderHasLongText,eq,true,1,OrderHasLongText,eq,true
+,,,,,,,,,,,
+,,,,,,,,,,,
+26,Could you fetch me the records where the Local Account Assignment Cost Center is 'CC107'?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,LocAcctAssgmtCostCenter,eq,'CC107',1,LocAcctAssgmtCostCenter,eq,'CC107'
+,,,,,,,,,,,
+,,,,,,,,,,,
+27,I need to see the details where the Technical Object Label is 'Software10'.,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,TechnicalObjectLabel,eq,'Software10',1,TechnicalObjectLabel,eq,'Software10'
+,,,,,,,,,,,
+,,,,,,,,,,,
+28,Could you show me the maintenance orders that currently have open services?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,MaintOrdHasOpenServices,eq,true,1,MaintOrdHasOpenServices,eq,true
+,,,,,,,,,,,
+,,,,,,,,,,,
+29,Could you find the records where the Responsible Cost Center is assigned to the 'CC2002' department?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,ResponsibleCostCenter,eq,'CC2002',1,ResponsibleCostCenter,eq,'CC2002'
+,,,,,,,,,,,
+,,,,,,,,,,,
+30,Can you show me all records where the city name is Houston?,T,SelectProperties does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,,1,CityName,eq,'Houston',1,CityName,eq,'Houston'
+,,,,,,,,,,,
+,,,,,,,,,,,

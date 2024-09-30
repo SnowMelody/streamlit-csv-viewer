@@ -1,0 +1,3 @@
+IDX,USER_QUERY,IS_VALID,MATCH,NUM_FILTERS_EXP,FILTERS_EXP,OPERATORS_EXP,VALUES_EXP,NUM_FILTERS_ACT,FILTERS_ACT,OPERATORS_ACT,VALUES_ACT,REMARKS
+1.0,Can you find the data where the settlement order is finalized and resolved in the fifth sequence?,F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES,
+,,,SelectProperties does not match.,1,SettlementOrder,eq,'5',1,MaintainPriority,eq,'5',
