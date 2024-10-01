@@ -143,10 +143,16 @@ def csv_viewer_page(dataframes):
     # Display the count of invalid queries and total entries
     st.write(f'Total number of invalid queries: {total_invalid_entries} / {total_entries}')
     
-    # Save changes button
     if st.button('Save changes'):
         save_to_csv(updated_df, os.path.join('dataset', 'output.csv'))
         st.success('Changes saved to output.csv')
+
+    st.download_button(
+        label="Download data as CSV",
+        data=updated_df.to_csv(index=False).encode('utf-8'),
+        file_name='output.csv',
+        mime='text/csv'
+    )
 
 def idx_viewer_page(dataframes):
     st.title('Invalid IDX Viewer')
@@ -203,17 +209,21 @@ def idx_viewer_page(dataframes):
         # Display the count of occurrences
         st.write(f'Invalid IDX {selected_idx} appears: {total_invalid_occurrences} / {total_occurrences}')
         
-        # Option to save changes back to combined CSV
         if st.button('Save changes'):
             save_to_csv(updated_df, os.path.join('dataset', 'output.csv'))
             st.success('Changes saved to output.csv')
 
-# Main function
+        st.download_button(
+            label="Download data as CSV",
+            data=updated_df.to_csv(index=False).encode('utf-8'),
+            file_name='output.csv',
+            mime='text/csv'
+        )
+
 def main():
     st.sidebar.title('Navigation')
     page = st.sidebar.selectbox('Select a page:', ['CSV Viewer', 'Invalid IDX Viewer'])
 
-    # Load CSV files only once
     csv_directory = 'dataset'
     dataframes = load_csv_files(csv_directory)
 
