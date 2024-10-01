@@ -192,7 +192,7 @@ def idx_viewer_page(dataframes):
         unique_invalid_idx
     )
 
-    if selected_idx:
+    if pd.notna(selected_idx):
         # Display all rows with the selected IDX, including associated rows with the same ROW_NUM
         selected_rows = combined_df[combined_df['ROW_NUM'].isin(
             invalid_idx_df[invalid_idx_df['IDX'] == selected_idx]['ROW_NUM'].unique()
@@ -208,7 +208,8 @@ def idx_viewer_page(dataframes):
 
         # Display the count of occurrences
         st.write(f'Invalid IDX {selected_idx} appears: {total_invalid_occurrences} / {total_occurrences}')
-        
+
+
         if st.button('Save changes'):
             save_to_csv(updated_df, os.path.join('dataset', 'output.csv'))
             st.success('Changes saved to output.csv')
