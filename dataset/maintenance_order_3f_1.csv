@@ -1,0 +1,121 @@
+IDX,USER_QUERY,IS_VALID,MATCH,NUM_FILTERS_EXP,FILTERS_EXP,OPERATORS_EXP,VALUES_EXP,NUM_FILTERS_ACT,FILTERS_ACT,OPERATORS_ACT,VALUES_ACT
+128,"I'm looking for maintenance orders that were initiated between September 2, 2019 and September 6, 2019, and are currently in the 'Transport On Hold' phase.",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintOrderCreationDateTime,ge,datetimeoffset'2019-09-02T00:00:00',3,MaintenanceOrderCreationDateTime,gt,datetime'2019-09-02T00:00:00'
+,,,,,MaintOrderCreationDateTime,le,datetimeoffset'2019-09-06T00:00:00',,MaintenanceOrderCreationDateTime,lt,datetime'2019-09-06T23:59:59'
+,,,,,ConcatenatedOrderPhaseCtrlText,eq,'TOH',,,,
+150,"Can you show me the data for the maintenance orders scheduled to start between March 9, 2029 and June 8, 2029, specifically for the guest bedroom?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintOrdSchedBscStartDateTime,ge,datetimeoffset'2029-03-09T00:00:00',3,MaintOrdSchedBasicStartDateTime,gt,datetime'2029-03-09T00:00:00'
+,,,,,MaintOrdSchedBscStartDateTime,le,datetimeoffset'2029-06-08T00:00:00',,MaintOrdSchedBasicStartDateTime,lt,datetime'2029-06-08T23:59:59'
+,,,,,AssetRoom,eq,'GuestBedroom',,,,
+159,"I require the information on the object labeled as Object008, which had maintenance orders referenced from March 26, 2019 onwards but not beyond March 31, 2019.",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,TechnicalObjectLabel,eq,'Object008',3,MaintOrderReferenceDate,ge,2019-03-26
+,,,,,MaintOrderReferenceDateTime,ge,datetimeoffset'2019-03-26T00:00:00',,MaintOrderReferenceDate,le,2019-03-31
+,,,,,MaintOrderReferenceDateTime,le,datetimeoffset'2019-03-31T00:00:00',,TechnicalObject,eq,'Object008'
+163,"Can you pull the maintenance orders that were placed between March 21, 2022, and May 20, 2022, and where the maintenance revision number is 22?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintOrderReferenceDateTime,ge,datetimeoffset'2022-03-21T00:00:00',3,MaintOrderCreationDateTime,gt,datetime'2022-03-21T00:00:00'
+,,,,,MaintOrderReferenceDateTime,le,datetimeoffset'2022-05-20T00:00:00',,MaintOrderCreationDateTime,lt,datetime'2022-05-20T23:59:59'
+,,,,,MaintenanceRevision,eq,'22',,MaintenanceRevision,eq,'22'
+173,"Could you please show me the maintenance orders that are planned and have an end date and time between May 12, 2027 and August 5, 2027?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintOrdBasicEndDateTime,le,datetimeoffset'2027-08-05T00:00:00',3,MaintOrdBasicEndDateTime,gt,datetime'2027-05-12T00:00:00'
+,,,,,MaintOrdBasicEndDateTime,ge,datetimeoffset'2027-05-12T00:00:00',,MaintOrdBasicEndDateTime,lt,datetime'2027-08-05T23:59:59'
+,,,,,MaintenanceOrderPlanningCode,eq,'1',,MaintenanceOrderPlanningCode,eq,'1'
+176,"Could you please provide the maintenance orders scheduled to finish between November 9, 2025, and May 17, 2026, related to the fourth task or phase in the Work Breakdown Structure?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintOrdSchedldBscEndDateTime,le,datetimeoffset'2026-05-17T00:00:00',3,MaintOrdSchedBscEndDateTime,ge,datetime'2025-11-09T00:00:00'
+,,,,,MaintOrdSchedldBscEndDateTime,ge,datetimeoffset'2025-11-09T00:00:00',,MaintOrdSchedBscEndDateTime,le,datetime'2026-05-17T23:59:59'
+,,,,,WBSElement,eq,'WBSElement4',,WBSElement,eq,'4'
+181,"Can you filter the data to show me maintenance orders that were referenced from October 8, 2025, up to April 3, 2026, and the control phase of the order has not yet been defined?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintOrderReferenceDateTime,le,datetimeoffset'2026-04-03T00:00:00',3,MaintOrderReferenceDate,ge,datetime'2025-10-08T00:00:00'
+,,,,,MaintOrderReferenceDateTime,ge,datetimeoffset'2025-10-08T00:00:00',,MaintOrderReferenceDate,le,datetime'2026-04-03T00:00:00'
+,,,,,ConcatenatedOrderPhaseCtrlText,eq,'',,,,
+182,"Can you give me the data related to maintenance orders scheduled to end between April 4, 2021 and July 26, 2021, and where the order of establishment is the 8th in sequence?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintOrdSchedldBscEndDateTime,ge,datetimeoffset'2021-04-04T00:00:00',3,MaintOrdBasicEndDateTime,gt,datetime'2021-04-04T00:00:00'
+,,,,,MaintOrdSchedldBscEndDateTime,le,datetimeoffset'2021-07-26T00:00:00',,MaintOrdBasicEndDateTime,lt,datetime'2021-07-26T23:59:59'
+,,,,,SettlementOrder,eq,'8',,TaskListGroupCounter,eq,'08'
+189,"Can you provide the information for the 'Mechanics' WorkCenter where the scheduled end dates for maintenance orders are between July 25, 2022 and August 16, 2022?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,WorkCenter,eq,'RES-0100',3,MainWorkCenter,eq,'Mechanics'
+,,,,,MaintOrdSchedldBscEndDateTime,le,datetimeoffset'2022-08-16T00:00:00',,ScheduledBasicEndDate,gt,2022-07-25
+,,,,,MaintOrdSchedldBscEndDateTime,ge,datetimeoffset'2022-07-25T00:00:00',,ScheduledBasicEndDate,lt,2022-08-16
+205,"Show me the scheduled maintenance orders for the Cactus Area that are planned to finish between January 4, 2021 and February 8, 2021.",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,PlantSection,eq,'CactusArea',3,MaintOrdBasicEndDate,gt,2021-01-04T00:00:00
+,,,,,MaintOrdSchedldBscEndDateTime,ge,datetimeoffset'2021-01-04T00:00:00',,MaintOrdBasicEndDate,lt,2021-02-08T00:00:00
+,,,,,MaintOrdSchedldBscEndDateTime,le,datetimeoffset'2021-02-08T00:00:00',,,,
+208,"Can you retrieve the records where the Local Accounting Assignment Controlling Area is 'CA008' and the Maintenance Order Reference Date and Time falls between November 23, 2020, and April 26, 2021?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,LocAcctAssgmtControllingArea,eq,'CA008',3,LocAcctAssgmtControllingArea,eq,'CA008'
+,,,,,MaintOrderReferenceDateTime,le,datetimeoffset'2021-04-26T00:00:00',,MaintOrderReferenceDateTime,gt,datetime'2020-11-23T00:00:00'
+,,,,,MaintOrderReferenceDateTime,ge,datetimeoffset'2020-11-23T00:00:00',,MaintOrderReferenceDateTime,lt,datetime'2021-04-26T00:00:00'
+210,"Kindly fetch the records where the latest acceptable completion date is on or before November 5, 2019, yet at the same time is on or after August 27, 2019. Also, ensure the basic maintenance order's end date and time is on or before July 22, 2020.",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,LatestAcceptableCompletionDate,le,datetime'2019-11-05T00:00:00',3,LatestAcceptableCompletionDate,ge,2019-08-27
+,,,,,LatestAcceptableCompletionDate,ge,datetime'2019-08-27T00:00:00',,LatestAcceptableCompletionDate,le,2019-11-05
+,,,,,MaintOrdBasicEndDateTime,le,datetimeoffset'2020-07-22T00:00:00',,MaintOrdBasicEndDateTime,le,datetime'2020-07-22T00:00:00'
+219,"Show me the tasks that should be completed no earlier than March 8, 2027 and no later than March 18, 2027, with their maintenance orders scheduled to start anytime from August 11, 2023 onwards.",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,LatestAcceptableCompletionDate,ge,datetime'2027-03-08T00:00:00',3,MaintOrdBasicEndDateTime,ge,datetime'2027-03-08T00:00:00'
+,,,,,LatestAcceptableCompletionDate,le,datetime'2027-03-18T00:00:00',,MaintOrdBasicEndDateTime,le,datetime'2027-03-18T23:59:59'
+,,,,,MaintOrdSchedBscStartDateTime,ge,datetimeoffset'2023-08-11T00:00:00',,MaintOrdSchedBasicStartDate,ge,datetime'2023-08-11T00:00:00'
+221,"Can you provide the details when the technical object description is AI Algorithm Module and the maintenance order is scheduled to start anytime between April 20, 2022 and October 10, 2022?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,TechnicalObjectDescription,eq,'AIAlgorithmModule',3,MaintOrdSchedBasicStartDate,ge,2022-04-20T00:00:00
+,,,,,MaintOrdSchedBscStartDateTime,ge,datetimeoffset'2022-04-20T00:00:00',,MaintOrdSchedBasicStartDate,le,2022-10-10T23:59:59
+,,,,,MaintOrdSchedBscStartDateTime,le,datetimeoffset'2022-10-10T00:00:00',,,,
+226,"Kindly show me the maintenance orders that do not have any open purchase orders and for which the basic start date and time is on or after June 11, 2026 and on or before October 2, 2026.",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintOrdHasOpenPurchaseOrders,eq,false,3,MaintOrdBasicStartDateTime,ge,datetime'2026-06-11T00:00:00'
+,,,,,MaintOrdBasicStartDateTime,le,datetimeoffset'2026-10-02T00:00:00',,MaintOrdBasicStartDateTime,le,datetime'2026-10-02T23:59:59'
+,,,,,MaintOrdBasicStartDateTime,ge,datetimeoffset'2026-06-11T00:00:00',,MaintOrdHasOpenPurchaseOrders,eq,false
+229,"Could you provide information where the responsible person's contact for a plant section is 901-234-5678, and the basic start dates for maintenance orders are scheduled from October 2, 2021 but not later than April 7, 2022?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,PlantSectionPersonRespPhone,eq,'901-234-5678',3,MaintOrdBasicStartDate,ge,2021-10-02
+,,,,,MaintOrdBasicStartDateTime,le,datetimeoffset'2022-04-07T00:00:00',,MaintOrdBasicStartDate,le,2022-04-07
+,,,,,MaintOrdBasicStartDateTime,ge,datetimeoffset'2021-10-02T00:00:00',,PlantSectionPersonRespPhone,eq,'901-234-5678'
+236,"Could you fetch the information where the equipment used is Backhoe, and the reference dates for maintenance orders are between November 2, 2020 and March 11, 2021?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,Equipment,eq,'Backhoe',3,Equipment,eq,'Backhoe'
+,,,,,MaintOrderReferenceDateTime,le,datetimeoffset'2021-03-11T00:00:00',,MaintenanceOrderReferenceDate,gt,2020-11-02
+,,,,,MaintOrderReferenceDateTime,ge,datetimeoffset'2020-11-02T00:00:00',,MaintenanceOrderReferenceDate,lt,2021-03-11
+239,"Can I get the records with an unset profile status and the maintenance orders that were scheduled to end between February 4, 2021 and May 25, 2021?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,StatusProfile,eq,'',3,(MaintOrdSchedBasicEndDate,ge,2021-02-04
+,,,,,MaintOrdSchedldBscEndDateTime,ge,datetimeoffset'2021-02-04T00:00:00',,(StatusProfile,eq,'')
+,,,,,MaintOrdSchedldBscEndDateTime,le,datetimeoffset'2021-05-25T00:00:00',,MaintOrdSchedBasicEndDate,le,2021-05-25)
+240,"Can you show me any maintenance orders that were created in London between March 28, 2029 and April 27, 2029?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,CityName,eq,'London',3,CityName,eq,'London'
+,,,,,MaintOrderCreationDateTime,ge,datetimeoffset'2029-03-28T00:00:00',,CreationDate,ge,2029-03-28
+,,,,,MaintOrderCreationDateTime,le,datetimeoffset'2029-04-27T00:00:00',,CreationDate,le,2029-04-27
+245,"Can you retrieve the tasks that are currently in the development phase and the scheduled basic end date and time for these maintenance orders is between February 22, 2029, and May 19, 2029?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,WBSDescription,eq,'DevelopmentPhase',3,MaintOrdSchedldBscEndDateTime,gt,datetime'2029-02-22T00:00:00'
+,,,,,MaintOrdSchedldBscEndDateTime,le,datetimeoffset'2029-05-19T00:00:00',,MaintOrdSchedldBscEndDateTime,lt,datetime'2029-05-19T23:59:59'
+,,,,,MaintOrdSchedldBscEndDateTime,ge,datetimeoffset'2029-02-22T00:00:00',,MaintenanceProcessingPhase,eq,'2'
+247,"Can you get me the maintenance orders labeled as 'Planned Maintenance September' that have their basic end dates and times falling between June 1, 2028, and September 7, 2028?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintPlngBucketLabel,eq,'PlannedMaintenanceSeptember',3,MaintOrdBasicEndDateTime,gt,datetime'2028-06-01T00:00:00'
+,,,,,MaintOrdBasicEndDateTime,ge,datetimeoffset'2028-06-01T00:00:00',,MaintOrdBasicEndDateTime,lt,datetime'2028-09-07T23:59:59'
+,,,,,MaintOrdBasicEndDateTime,le,datetimeoffset'2028-09-07T00:00:00',,,,
+249,"Can you provide the maintenance orders with open reservations that have their end date and time falling between December 24, 2019 and April 18, 2020?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintOrderHasOpenReservations,eq,true,3,MaintOrdBasicEndDateTime,gt,datetime'2019-12-24T00:00:00'
+,,,,,MaintOrdBasicEndDateTime,ge,datetimeoffset'2019-12-24T00:00:00',,MaintOrdBasicEndDateTime,lt,datetime'2020-04-18T23:59:59'
+,,,,,MaintOrdBasicEndDateTime,le,datetimeoffset'2020-04-18T00:00:00',,MaintOrderHasOpenReservations,eq,true
+251,"Can you provide data for orders that don't have a long text and were created between July 4, 2024, and October 14, 2024?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,OrderHasLongText,eq,false,3,CreationDate,ge,2024-07-04
+,,,,,MaintOrderCreationDateTime,ge,datetimeoffset'2024-07-04T00:00:00',,CreationDate,le,2024-10-14
+,,,,,MaintOrderCreationDateTime,le,datetimeoffset'2024-10-14T00:00:00',,OrderHasLongText,eq,false
+256,"Could you fetch me the data records where the Maintenance Activity Type is Fault Clearance and the scheduled end date and time for the maintenance order lies between December 24, 2028 and May 19, 2029?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintenanceActivityType,eq,'YB1',3,MaintOrdSchedldBscEndDateTime,ge,datetime'2028-12-24T00:00:00'
+,,,,,MaintOrdSchedldBscEndDateTime,le,datetimeoffset'2029-05-19T00:00:00',,MaintOrdSchedldBscEndDateTime,le,datetime'2029-05-19T00:00:00'
+,,,,,MaintOrdSchedldBscEndDateTime,ge,datetimeoffset'2028-12-24T00:00:00',,MaintenanceActivityType,eq,'YB1'
+257,"Can you provide the data for the local account assignment cost center of 'Plant & Maintenance (DE)', with the maintenance order timestamps being after or on October 14, 20201 and before or on March 21, 2022?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,LocAcctAssgmtCostCenter,eq,'10101701',3,MaintOrderCreationDateTime,ge,datetime'2020-10-14T00:00:00'
+,,,,,MaintOrderReferenceDateTime,le,datetimeoffset'2022-03-21T00:00:00',,MaintOrderCreationDateTime,le,datetime'2022-03-21T23:59:59'
+,,,,,MaintOrderReferenceDateTime,ge,datetimeoffset'2021-10-14T00:00:00',,,,
+262,"Could you provide the information where the Work Breakdown Structure element is WBSElement2 and the basic maintenance order ended between April 12, 2029, and September 5, 2029?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,WBSElement,eq,'WBSElement2',3,LocAcctAssgmtWBSElement,eq,'WBSElement2'
+,,,,,MaintOrdBasicEndDateTime,le,datetimeoffset'2029-09-05T00:00:00',,MaintOrdBasicEndDate,ge,2029-04-12
+,,,,,MaintOrdBasicEndDateTime,ge,datetimeoffset'2029-04-12T00:00:00',,MaintOrdBasicEndDate,le,2029-09-05
+267,"I am after the records for the item with the serial number SN005, with the maintenance order scheduled to end anytime from April 4, 2021 to July 12, 2021.",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,SerialNumber,eq,'SN005',3,ScheduledBasicEndDate,ge,2021-04-04
+,,,,,MaintOrdSchedldBscEndDateTime,ge,datetimeoffset'2021-04-04T00:00:00',,ScheduledBasicEndDate,le,2021-07-12
+,,,,,MaintOrdSchedldBscEndDateTime,le,datetimeoffset'2021-07-12T00:00:00',,SerialNumber,eq,'SN005'
+271,"Can you display the records where the maintenance order planning code indicates an 'Immediate order' and the maintenance order creation date and time is between February 24, 2020, and August 15, 2020?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,MaintenanceOrderPlanningCode,eq,'2',3,MaintOrderCreationDateTime,gt,datetime'2020-02-24T00:00:00'
+,,,,,MaintOrderCreationDateTime,ge,datetimeoffset'2020-02-24T00:00:00',,MaintOrderCreationDateTime,lt,datetime'2020-08-15T00:00:00'
+,,,,,MaintOrderCreationDateTime,le,datetimeoffset'2020-08-15T00:00:00',,MaintenanceOrderPlanningCode,eq,'2'
+274,"Can you pull up the records for the item with the serial number SN005, which has maintenance scheduled between May 30, 2029 and June 7, 2029?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,SerialNumber,eq,'SN005',3,ScheduledBasicEndDate,lt,2029-06-07
+,,,,,MaintOrdSchedBscStartDateTime,le,datetimeoffset'2029-06-07T00:00:00',,ScheduledBasicStartDate,gt,2029-05-30
+,,,,,MaintOrdSchedBscStartDateTime,ge,datetimeoffset'2029-05-30T00:00:00',,SerialNumber,eq,'SN005'
+276,"Can you show me the records where the Controlling Area is 'Controlling Area A000' and the Maintenance Order Basic Start Date and Time is between August 2, 2020 and January 23, 2021?",F,FilterCriteria does not match.,NUM_FILTERS,FILTERS,OPERATORS,VALUES,NUM_FILTERS,FILTERS,OPERATORS,VALUES
+,,,SelectProperties does not match.,3,ControllingArea,eq,'A000',3,ControllingArea,eq,'A000'
+,,,,,MaintOrdBasicStartDateTime,ge,datetimeoffset'2020-08-02T00:00:00',,MaintOrdBasicStartDateTime,gt,datetime'2020-08-02T00:00:00'
+,,,,,MaintOrdBasicStartDateTime,le,datetimeoffset'2021-01-23T00:00:00',,MaintOrdBasicStartDateTime,lt,datetime'2021-01-23T23:59:59'
