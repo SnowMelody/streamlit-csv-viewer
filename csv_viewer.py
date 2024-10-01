@@ -149,7 +149,7 @@ def csv_viewer_page(dataframes):
 
     st.download_button(
         label="Download data as CSV",
-        data=updated_df.to_csv(index=False).encode('utf-8'),
+        data=updated_df.drop(columns=['ROW_NUM', 'IS_MATCH'], errors='ignore').to_csv(index=False).encode('utf-8'),
         file_name='output.csv',
         mime='text/csv'
     )
@@ -216,7 +216,7 @@ def idx_viewer_page(dataframes):
 
         st.download_button(
             label="Download data as CSV",
-            data=updated_df.to_csv(index=False).encode('utf-8'),
+            data=updated_df.drop(columns=['ROW_NUM', 'IS_MATCH'], errors='ignore').to_csv(index=False).encode('utf-8'),
             file_name='output.csv',
             mime='text/csv'
         )
