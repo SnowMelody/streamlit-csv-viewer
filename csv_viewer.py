@@ -3,17 +3,16 @@ import pandas as pd
 from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, JsCode
 import os
 
-def load_csv_files(directory):
-    csv_files = [f for f in os.listdir(directory) if f.endswith('.csv')]
+def load_csv_files(uploaded_files):
     dataframes = {}
 
-    for f in csv_files:
-        df = pd.read_csv(os.path.join(directory, f))
+    for uploaded_file in uploaded_files:
+        df = pd.read_csv(uploaded_file)
 
         if 'REMARKS' not in df:
             df['REMARKS'] = None
 
-        dataframes[f] = df
+        dataframes[uploaded_file.name] = df
 
     return dataframes
 
@@ -209,7 +208,6 @@ def idx_viewer_page(dataframes):
         # Display the count of occurrences
         st.write(f'Invalid IDX {selected_idx} appears: {total_invalid_occurrences} / {total_occurrences}')
 
-
         if st.button('Save changes'):
             save_to_csv(updated_df, os.path.join('dataset', 'output.csv'))
             st.success('Changes saved to output.csv')
@@ -224,15 +222,19 @@ def idx_viewer_page(dataframes):
 def main():
     st.sidebar.title('Navigation')
     page = st.sidebar.selectbox('Select a page:', ['CSV Viewer', 'Invalid IDX Viewer'])
+    uploaded_files = st.sidebar.file_uploader('Upload one or more CSV files', type=['csv'], accept_multiple_files=True)
 
-    csv_directory = 'dataset'
-    dataframes = load_csv_files(csv_directory)
+    if uploaded_files:
+        dataframes = load_csv_files(uploaded_files)
 
-    if page == 'CSV Viewer':
-        csv_viewer_page(dataframes)
+        if page == 'CSV Viewer':
+            csv_viewer_page(dataframes)
 
-    elif page == 'Invalid IDX Viewer':
-        idx_viewer_page(dataframes)
+        elif page == 'Invalid IDX Viewer':
+            idx_viewer_page(dataframes)
+
+    else:
+        st.sidebar.warning('Please upload at least one CSV file.')
 
 if __name__ == '__main__':
     main()
