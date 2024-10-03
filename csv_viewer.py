@@ -3,7 +3,23 @@ import pandas as pd
 from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, JsCode
 import os
 
-def load_csv_files(uploaded_files):
+# Function to load CSV files from the /dataset folder
+def load_csv_files_from_directory(directory):
+    csv_files = [f for f in os.listdir(directory) if f.endswith('.csv')]
+    dataframes = {}
+
+    for f in csv_files:
+        df = pd.read_csv(os.path.join(directory, f))
+
+        if 'REMARKS' not in df:
+            df['REMARKS'] = None
+
+        dataframes[f] = df
+
+    return dataframes
+
+# Function to load CSV files from the uploaded files
+def load_csv_files_from_uploads(uploaded_files):
     dataframes = {}
 
     for uploaded_file in uploaded_files:
@@ -12,10 +28,23 @@ def load_csv_files(uploaded_files):
         if 'REMARKS' not in df:
             df['REMARKS'] = None
 
+        # Use uploaded_file.name as the key to preserve the file name
         dataframes[uploaded_file.name] = df
 
     return dataframes
 
+# Function to combine the data from both the dataset folder and uploaded files
+def load_csv_files(directory, uploaded_files):
+    # Load CSV files from the directory
+    dataframes = load_csv_files_from_directory(directory)
+
+    # Load CSV files from the uploaded files and update the dataframes dictionary
+    if uploaded_files:
+        uploaded_dataframes = load_csv_files_from_uploads(uploaded_files)
+        dataframes.update(uploaded_dataframes)
+
+    return dataframes
+    
 def remove_empty_rows(df):
     return df.dropna(how='all')
 
@@ -222,19 +251,24 @@ def idx_viewer_page(dataframes):
 def main():
     st.sidebar.title('Navigation')
     page = st.sidebar.selectbox('Select a page:', ['CSV Viewer', 'Invalid IDX Viewer'])
-    uploaded_files = st.sidebar.file_uploader('Upload one or more CSV files', type=['csv'], accept_multiple_files=True)
 
-    if uploaded_files:
-        dataframes = load_csv_files(uploaded_files)
+    # File uploader in the sidebar to upload multiple CSV files
+    uploaded_files = st.sidebar.file_uploader("Upload one or more CSV files", type=["csv"], accept_multiple_files=True)
 
+    # Define the dataset directory
+    csv_directory = 'dataset'
+
+    # Load CSV files from both the /dataset folder and the uploaded files
+    dataframes = load_csv_files(csv_directory, uploaded_files)
+
+    if dataframes:
         if page == 'CSV Viewer':
             csv_viewer_page(dataframes)
 
         elif page == 'Invalid IDX Viewer':
             idx_viewer_page(dataframes)
-
     else:
-        st.sidebar.warning('Please upload at least one CSV file.')
+        st.sidebar.warning("Please upload at least one CSV file or make sure there are CSV files in the dataset folder.")
 
 if __name__ == '__main__':
     main()
